@@ -1,3 +1,7 @@
+:highlight ExtraWhitespace ctermbg=red guibg=red
+" Show trailing whitespace:
+:autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+
 :set tabstop=4 shiftwidth=4 expandtab
 
 :function! s:guess_tab() abort
@@ -20,5 +24,3 @@
 :endfunction
 
 :autocmd BufRead * call s:guess_tab()
-
-
