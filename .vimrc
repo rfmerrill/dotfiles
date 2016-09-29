@@ -4,6 +4,8 @@
 
 :set tabstop=4 shiftwidth=4 expandtab
 
+:highlight WrongIndent ctermbg=red guibg=red
+
 :function! s:guess_tab() abort
 :   let lines = getline(1, 1024)
 :   let tab_count = 0
@@ -20,6 +22,9 @@
 :       call setbufvar('', '&'.'tabstop', 8)
 :       call setbufvar('', '&'.'shiftwidth', 8)
 :       call setbufvar('', '&'.'expandtab', 0)
+:       autocmd BufWinEnter * match WrongIndent /^ \+/
+:   else
+:       autocmd BufWinEnter * match WrongIndent /^\t\+/
 :   endif
 :endfunction
 
