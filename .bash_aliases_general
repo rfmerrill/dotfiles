@@ -1,0 +1,7 @@
+export VISUAL=vim
+export EDITOR=vim
+alias errno="~/disp_errno.py"
+alias signal="~/disp_signal.py"
+function pcbu() {
+    git push -u origin $(git symbolic-ref --short HEAD)
+}
