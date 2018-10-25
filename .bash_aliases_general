@@ -5,3 +5,10 @@ alias signal="~/disp_signal.py"
 function pcbu() {
     git push -u origin $(git symbolic-ref --short HEAD)
 }
+if [[ ":$PATH:" != *":${HOME}/.local/bin:" ]]; then
+    export PATH="${HOME}/.local/bin:$PATH"
+fi
+if [[ ":$PATH:" != *":${HOME}/bin:" ]]; then
+    export PATH="${HOME}/bin:$PATH"
+fi
+eval $(thefuck --alias)
